@@ -10,6 +10,7 @@ import './index.css'
 //Views
 import Landing from './views/Landing';
 import Dashboard from './views/Dashboard';
+import Auth from './views/Auth';
 
 const App: React.FC = () => (
   <IonApp>
@@ -17,6 +18,7 @@ const App: React.FC = () => (
 		<IonRouterOutlet>
 			<Route exact path="/" component={Landing}/>
 			<Route path="/dashboard" component={Dashboard}/>
+			<Route path="/auth" component={Auth} />
 		</IonRouterOutlet>
 	</IonReactRouter>
   </IonApp>

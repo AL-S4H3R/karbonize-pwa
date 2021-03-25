@@ -6,8 +6,8 @@ const Hero: React.FC = () => {
 
     const history = useHistory()
     
-    const gotoDashboard = () => {
-        history.push('/dashboard')
+    const gotoAuth = () => {
+        history.push('/auth')
     }
         return(
             <section className="px-8 py-4 font-mono text-green-600 oveflow-hidden space-y-12">
@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
                 <div className="flex justify-center">
                     <button 
                         className="p-2 bg-green-600 text-gray-300"
-                        onClick={gotoDashboard}
+                        onClick={gotoAuth}
                     >
                         Get Started
                     </button>
