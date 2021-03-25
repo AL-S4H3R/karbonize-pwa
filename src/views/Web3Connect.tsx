@@ -6,15 +6,17 @@ import { useHistory } from 'react-router'
 
 import Web3 from 'web3'
 import Portis from '@portis/web3'
+import { useWeb3 } from '../context/Web3Context'
 
 const Web3Connect: React.FC = () => {
 
     const history = useHistory()
-
+    const { setWeb3Instance } = useWeb3()
+    
     const connectToPortis = async () => {
         const portis = new Portis('b358dd9f-7a6a-4c26-948b-a79c29d3fa59', 'maticMumbai')
         const web3 = new Web3(portis.provider)
-
+        setWeb3Instance(web3)
         var accounts = await web3.eth.getAccounts()
         console.log(accounts[0])
 

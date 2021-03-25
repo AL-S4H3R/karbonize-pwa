@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell, faConciergeBell, faUserAlt, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { faBell, faConciergeBell, faHistory, faUserAlt, faWallet } from '@fortawesome/free-solid-svg-icons'
 import { useHistory } from 'react-router'
 
 const Topbar: React.FC = () => {
@@ -19,7 +19,7 @@ const Topbar: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4 rounded-full bg-gray-900 py-2 px-4">
                 <FontAwesomeIcon 
-                    icon={faBell}
+                    icon={faHistory}
                     className="text-2xl"
                 />
             </div>

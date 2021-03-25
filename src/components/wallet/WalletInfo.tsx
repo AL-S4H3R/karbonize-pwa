@@ -2,6 +2,7 @@ import { faTintSlash, faWallet } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { useHistory } from 'react-router'
+import { useWeb3 } from '../../context/Web3Context'
 import { data } from '../../data'
 import KreditTrade from './KreditTrade'
 
@@ -9,6 +10,18 @@ const WalletInfo: React.FC = () => {
 
     const [trade, setTrade] = React.useState('buying')
     const history = useHistory()
+    const { web3Instance } = useWeb3()
+    
+    React.useEffect(() => {
+        getEthAccounts()
+    }, [web3Instance])
+    
+    const getEthAccounts = async () => {
+        if(web3Instance !== undefined){
+            var accounts = await web3Instance.eth.getAccounts()
+            console.log(accounts[0])
+        }
+    }
 
     return(
         <section className="px-10 py-4 font-mono text-green-400 space-y-6">

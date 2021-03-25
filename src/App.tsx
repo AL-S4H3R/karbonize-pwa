@@ -14,9 +14,11 @@ import Auth from './views/Auth';
 import MyAccount from './views/MyAccount';
 import MyWallet from './views/MyWallet';
 import Web3Connect from './views/Web3Connect';
+import Web3ContextProvider from './context/Web3Context';
 
 const App: React.FC = () => (
   <IonApp>
+	<Web3ContextProvider>
     <IonReactRouter>
 		<IonRouterOutlet>
 			<Route exact path="/" component={Landing}/>
@@ -27,6 +29,7 @@ const App: React.FC = () => (
 			<Route path="/connect" component={Web3Connect} />
 		</IonRouterOutlet>
 	</IonReactRouter>
+	</Web3ContextProvider>
   </IonApp>
 );
 
