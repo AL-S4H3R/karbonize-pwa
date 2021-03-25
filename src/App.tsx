@@ -13,7 +13,7 @@ import Dashboard from './views/Dashboard';
 import Auth from './views/Auth';
 import MyAccount from './views/MyAccount';
 import MyWallet from './views/MyWallet';
-import Web3Connect from './views/Web3Connect';
+import Web3Connect from './views/Web3Connect.jsx';
 import Web3ContextProvider from './context/Web3Context';
 
 const App: React.FC = () => (

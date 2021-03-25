@@ -8,7 +8,9 @@ import Web3 from 'web3'
 import Portis from '@portis/web3'
 import { useWeb3 } from '../context/Web3Context'
 
-const Web3Connect: React.FC = () => {
+import { Karbonize } from '../contracts/Karbonize'
+
+const Web3Connect = () => {
 
     const history = useHistory()
     const { setWeb3Instance } = useWeb3()
@@ -20,6 +22,9 @@ const Web3Connect: React.FC = () => {
         var accounts = await web3.eth.getAccounts()
         console.log(accounts[0])
 
+        var contractInstance = new web3.eth.Contract(Karbonize.abi, Karbonize.networks[5777].address)
+        console.log(contractInstance)
+        
         if(accounts !== null){
             history.push('/wallet')
         }

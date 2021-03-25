@@ -8,8 +8,9 @@ export const useWeb3 = () => {
 
 const Web3ContextProvider = ({children}) => {
     const [web3Instance, setWeb3Instance] = React.useState()
-    
-    const values = { web3Instance, setWeb3Instance}
+    const [contractInstance, setContractInstance] = React.useState()
+
+    const values = { web3Instance, setWeb3Instance, contractInstance, setContractInstance}
     return(
         <Web3Context.Provider value={values}>
             {children}
