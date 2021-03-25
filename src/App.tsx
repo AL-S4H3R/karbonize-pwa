@@ -13,6 +13,7 @@ import Dashboard from './views/Dashboard';
 import Auth from './views/Auth';
 import MyAccount from './views/MyAccount';
 import MyWallet from './views/MyWallet';
+import Web3Connect from './views/Web3Connect';
 
 const App: React.FC = () => (
   <IonApp>
@@ -23,6 +24,7 @@ const App: React.FC = () => (
 			<Route path="/auth" component={Auth} />
 			<Route path="/account" component={MyAccount} />
 			<Route path="/wallet" component={MyWallet} />
+			<Route path="/connect" component={Web3Connect} />
 		</IonRouterOutlet>
 	</IonReactRouter>
   </IonApp>
