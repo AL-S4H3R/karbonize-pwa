@@ -10,14 +10,16 @@ contract Karbonize is ERC20 {
         _mint(msg.sender, initialSupply);
     }
 
-    mapping(address => uint256) kreditBalances;
+    mapping(address => uint256) public kreditBalances;
 
     function buyKredits (address _buyer, uint256 _kredits) public payable {
         transfer(_buyer, _kredits);
+        kreditBalances[_buyer] += _kredits;
     }
 
     function sellKredits (address payable _seller, uint256 _amount, uint256 _kredits) public {
         _seller.transfer(_amount);
         transferFrom(_seller, address(this), _kredits);
+        kreditBalances[_seller] -= _kredits;
     }
 }

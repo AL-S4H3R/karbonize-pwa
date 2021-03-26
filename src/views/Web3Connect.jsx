@@ -8,23 +8,26 @@ import Web3 from 'web3'
 import Portis from '@portis/web3'
 import { useWeb3 } from '../context/Web3Context'
 
-import { Karbonize } from '../contracts/Karbonize'
+import Karbonize from '../contracts/Karbonize.json'
 
 const Web3Connect = () => {
 
     const history = useHistory()
-    const { setWeb3Instance } = useWeb3()
+    const { setWeb3Instance, setContractInstance } = useWeb3()
     
     const connectToPortis = async () => {
         const portis = new Portis('b358dd9f-7a6a-4c26-948b-a79c29d3fa59', 'maticMumbai')
         const web3 = new Web3(portis.provider)
+        // var web3 = new Web3('http://localhost:9545')
         setWeb3Instance(web3)
         var accounts = await web3.eth.getAccounts()
         console.log(accounts[0])
 
         var contractInstance = new web3.eth.Contract(Karbonize.abi, Karbonize.networks[5777].address)
         console.log(contractInstance)
-        
+
+        setContractInstance(contractInstance)
+
         if(accounts !== null){
             history.push('/wallet')
         }
